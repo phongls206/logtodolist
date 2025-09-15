@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+
+  <!-- favicon -->
+  <link
+    rel="apple-touch-icon"
+    sizes="57x57"
+    href="./favicon/apple-icon-57x57.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="60x60"
+    href="./favicon/apple-icon-60x60.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="72x72"
+    href="./favicon/apple-icon-72x72.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="76x76"
+    href="./favicon/apple-icon-76x76.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="114x114"
+    href="./favicon/apple-icon-114x114.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="120x120"
+    href="./favicon/apple-icon-120x120.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="144x144"
+    href="./favicon/apple-icon-144x144.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="152x152"
+    href="./favicon/apple-icon-152x152.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="./favicon/apple-icon-180x180.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="./favicon/android-icon-192x192.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="./favicon/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="96x96"
+    href="./favicon/favicon-96x96.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="./favicon/favicon-16x16.png"
+  />
+  <link rel="manifest" href="./favicon/manifest.json" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta
+    name="msapplication-TileImage"
+    content="./favicon/ms-icon-144x144.png"
+  />
+  <meta name="theme-color" content="#ffffff" />
+  <!-- font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <!-- css -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- js -->
+  <script defer src="script.js"></script>
+  <body>
+    <div class="acc-label">
+      <div id="account">Login</div>
+      <div class="acc-sub">
+        <ul class="acc-sub-info">
+          <li class="acc-item" id="logoutBtn">Logout</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="banner"><h1 id="todo-title">DRAGON BALL Z</h1></div>
+
+    <div id="todo-ui">
+      <div class="doraemon"></div>
+      <div class="todo-input">
+        <textarea
+          name="input_area"
+          id="input_area"
+          placeholder="Type..."
+        ></textarea>
+        <div class="todo-act">
+          <div class="todo-btn">
+            <button class="btn btn-done">✔️ Done</button>
+            <button class="btn btn-pending">⏳ Wait</button>
+            <button class="btn btn-back">👁️ Show</button>
+            <button class="btn btn-all">🎯 Select</button>
+            <button class="btn btn-clear">🧹 Clear</button>
+            <button class="btn btn-theme">🎨Skin</button>
+            <button class="btn btn-search">🔍Find</button>
+            <button class="btn btn-add">➕ Add</button>
+          </div>
+          <div class="search-box">
+            <input type="text" id="search-Input" placeholder="Search task..." />
+            <button id="search-Confirm" class="btn">OK</button>
+          </div>
+        </div>
+      </div>
+      <div class="todo-display"></div>
+    </div>
+
+    <div class="PlayMusic">
+      <div class="PlayMusic__inner">
+        <audio id="music" loop>
+          <source src="dragonball.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+    </div>
+  </body>
+</html>

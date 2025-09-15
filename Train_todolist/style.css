@@ -1,0 +1,938 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 20px;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Inter", "Poppins", sans-serif;
+  background: url(./dbz2.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  flex-direction: column;
+  font-size: 15px;
+}
+h1 {
+  white-space: nowrap;
+  font-size: 35px;
+  font-family: fantasy;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  text-align: center;
+  --pos: 1;
+  background: linear-gradient(45deg, #ffeb3b, #ff9800, #f44336);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 1px 0px 1px #fcb203, 0px 1px 1px #121111, 2px 1px 1px #020101,
+    1px 2px 1px #121111, 3px 2px 1px #cccccc, 2px 3px 1px #eeeeee,
+    4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc,
+    4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
+    7px 6px 1px #cccccc;
+  animation: shake 2s infinite;
+  transform-origin: center;
+
+  /* background: linear-gradient(...) → Tạo nền gradient (vàng → cam → đỏ).
+
+-webkit-background-clip: text; → Nền chỉ hiển thị trong phần chữ.
+
+-webkit-text-fill-color: transparent; → Làm chữ trong suốt để lộ gradient bên trong.
+
+-webkit-text-stroke: 2px black; → Thêm viền đen 2px quanh chữ cho nổi bật. */
+}
+h1:hover {
+  --pos: 5;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(calc(var(--pos) * 0px)) rotate(0deg);
+  }
+  10% {
+    transform: translateX(calc(var(--pos) * -2px)) rotate(-2deg);
+  }
+  20% {
+    transform: translateX(calc(var(--pos) * 2px)) rotate(2deg);
+  }
+  30% {
+    transform: translateX(calc(var(--pos) * -2px)) rotate(-2deg);
+  }
+  40% {
+    transform: translateX(calc(var(--pos) * 2px)) rotate(2deg);
+  }
+  50% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+#todo-ui {
+  position: relative;
+  max-width: 500px;
+  max-height: 800px;
+  width: 90%;
+  height: 70%;
+  border-radius: 10px;
+  display: flex;
+  animation: shake2 3s ease-in-out infinite;
+  flex-direction: column;
+  padding: 10px;
+  overflow-x: hidden;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  background-color: #f0a12aff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+@keyframes shake2 {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.doraemon {
+  position: absolute;
+  background: url(./dragon-ball-goku-seeklogo.svg) no-repeat center/cover;
+  width: 30px;
+  height: 30px;
+  top: 13rem;
+  left: 2rem;
+  animation: doremonrun 15s linear infinite alternate;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 50%;
+  z-index: -1;
+}
+.doraemon:hover {
+  scale: 1.3;
+}
+.doraemon:active {
+  scale: 1.5;
+  animation-play-state: paused;
+}
+
+@keyframes doremonrun {
+  0% {
+    left: -30px;
+    transform: scaleX(1) translateY(0);
+  }
+  6.25% {
+    transform: scaleX(1) translateY(-6px);
+  }
+  12.5% {
+    transform: scaleX(1) translateY(0);
+  }
+  18.75% {
+    transform: scaleX(1) translateY(6px);
+  }
+  25% {
+    transform: scaleX(1) translateY(0);
+  }
+
+  31.25% {
+    transform: scaleX(1) translateY(-6px);
+  }
+  37.5% {
+    transform: scaleX(1) translateY(0);
+  }
+  43.75% {
+    transform: scaleX(1) translateY(6px);
+  }
+  50% {
+    left: 100%;
+    transform: scaleX(1) translateY(0);
+  }
+
+  50.01% {
+    left: 100%;
+    transform: scaleX(-1) translateY(0);
+  }
+  56.25% {
+    transform: scaleX(-1) translateY(-6px);
+  }
+  62.5% {
+    transform: scaleX(-1) translateY(0);
+  }
+  68.75% {
+    transform: scaleX(-1) translateY(6px);
+  }
+  75% {
+    transform: scaleX(-1) translateY(0);
+  }
+
+  81.25% {
+    transform: scaleX(-1) translateY(-6px);
+  }
+  87.5% {
+    transform: scaleX(-1) translateY(0);
+  }
+  93.75% {
+    transform: scaleX(-1) translateY(6px);
+  }
+  100% {
+    left: -30px;
+    transform: scaleX(-1) translateY(0);
+  }
+}
+
+/*
+Chuẩn rồi 😎. scale đúng gốc nghĩa là phóng to / thu nhỏ.
+
+Nhưng cái hay là scale() trong CSS nó nhận cả số âm 👉 khi âm thì ngoài chuyện phóng to/nhỏ nó lật ảnh theo trục luôn:
+
+scaleX(2) → kéo ngang gấp đôi.
+
+scaleX(0.5) → thu nhỏ ngang một nửa.
+
+scaleX(-1) → lật gương ngang (mặt quay ngược).
+
+scaleY(-1) → lật gương dọc (úp ngược).
+
+Ví dụ cho dễ hình dung:
+
+.img1 { transform: scaleX(1); }   /* bình thường */
+/* .img2 { transform: scaleX(-1); }  lật ngang */
+/* .img3 { transform: scaleY(-1); } lật dọc */
+/* .img4 { transform: scale(-1, -1);}lật cả ngang + dọc = xoay 180° */
+
+#input_area {
+  max-height: 150px;
+  height: 100px;
+  resize: none;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.todo-input {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 5px;
+  line-height: 1.5;
+}
+
+.todo-btn {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+  gap: 10px;
+  margin-top: 40px;
+  z-index: 99;
+}
+
+.todo-btn .btn {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11.5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.btn {
+  transition: transform 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.1);
+  color: black;
+}
+.btn:active {
+  transform: scale(0.9);
+}
+
+.todo-btn .btn:nth-of-type(1) {
+  background: linear-gradient(135deg, rgb(59, 130, 246), rgb(37, 99, 235));
+}
+.todo-btn .btn:nth-of-type(2) {
+  background: linear-gradient(135deg, rgb(34, 197, 94), rgb(21, 128, 61));
+}
+.todo-btn .btn:nth-of-type(3) {
+  background: linear-gradient(135deg, rgb(6, 182, 212), rgb(3, 105, 161));
+}
+.todo-btn .btn:nth-of-type(4) {
+  background: linear-gradient(135deg, rgb(139, 92, 246), rgb(91, 33, 182));
+}
+.todo-btn .btn:nth-of-type(5) {
+  background: linear-gradient(135deg, rgb(249, 115, 22), rgb(194, 65, 12));
+}
+.todo-btn .btn:nth-of-type(6) {
+  background: linear-gradient(135deg, rgb(236, 72, 153), rgb(157, 23, 77));
+}
+.todo-btn .btn:nth-of-type(7) {
+  background: linear-gradient(135deg, rgb(107, 114, 128), rgb(55, 65, 81));
+}
+.todo-btn .btn:last-child {
+  background: linear-gradient(135deg, rgb(234, 179, 8), rgb(202, 138, 4));
+}
+.btn.btn-edit {
+  cursor: pointer;
+  background-color: rgb(248, 115, 6);
+  border-radius: 10px;
+  border: 2px solid black;
+  color: white;
+  width: fit-content;
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.btn.btn-edit:hover,
+.btn.btn-delete:hover,
+.btn.btn-pin:hover {
+  color: black;
+}
+
+.btn.btn-delete {
+  cursor: pointer;
+  background-color: red;
+  border-radius: 10px;
+  border: 2px solid black;
+  color: white;
+  width: fit-content;
+  font-size: 10px;
+  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.btn.btn-delete.theme {
+  background: linear-gradient(180deg, rgb(145, 125, 125), red);
+}
+.btn.btn-pin {
+  cursor: pointer;
+  background-color: rgb(234, 200, 121);
+  border-radius: 10px;
+  border: 2px solid black;
+  color: white;
+  width: fit-content;
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.theme .btn.btn-pin {
+  background: linear-gradient(30deg, rgb(13, 179, 250), rgb(236, 170, 115));
+}
+.todo-display {
+  width: 100%;
+  background-color: white;
+  height: 100%;
+  max-height: 580px;
+  padding: 15px;
+  border-radius: 5px;
+  scrollbar-width: none;
+}
+.todo-display {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.task-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  overflow-wrap: anywhere;
+  align-items: center;
+}
+.task-item input {
+  cursor: pointer;
+}
+.task-content {
+  outline: none;
+  flex: 1;
+  margin-left: 10px;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+}
+.task-content.done {
+  text-decoration: line-through;
+  color: gray;
+  font-style: italic;
+}
+
+.search-box {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  top: 13rem;
+  width: 90%;
+  max-width: 450px !important;
+  transform: scaleX(0);
+
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.7s ease;
+}
+.search-box.active {
+  transform: scaleX(1);
+  opacity: 1;
+}
+.search-box input {
+  width: 25%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: width 3s ease;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.search-box button {
+  padding: 6px 12px;
+  border: none;
+  background: rgb(130, 120, 120);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 2s linear, transform 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+#search-Confirm.theme {
+  background-color: #0279f0;
+}
+.search-box input:focus + #search-Confirm.theme {
+  background-color: rgb(127, 108, 236);
+}
+
+.search-box input:focus {
+  width: 100%;
+}
+.search-box input:focus + button {
+  background-color: rgb(255, 124, 1);
+}
+
+/* change theme cai */
+body.theme {
+  background: url("./doremon.webp") no-repeat center/cover;
+}
+#todo-ui.theme {
+  background-color: rgb(149, 191, 242);
+}
+#todo-title.theme {
+  background: linear-gradient(45deg, #0f77d1, #2377d1, #1291bf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgb(240, 240, 240);
+  text-shadow: 1px 0px 1px #0e92f0, 0px 1px 1px #074fe0, 2px 1px 1px #006eff,
+    1px 2px 1px #147fcb, 3px 2px 1px #dddee2, 2px 3px 1px #eeeeee,
+    4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc,
+    4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
+    7px 6px 1px #cccccc;
+  margin-left: 125px;
+}
+#todo-title.theme::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: -5rem;
+  background: url(./doraemon.ico);
+  background-size: contain;
+}
+.doraemon.theme {
+  background: url(./bay.png) no-repeat center/cover;
+}
+
+.todo-btn.theme .btn:nth-of-type(7) {
+  background: linear-gradient(135deg, #ffd700, #ffa500); /* vàng → cam */
+}
+.todo-btn.theme .btn:nth-of-type(2) {
+  background: linear-gradient(135deg, #87ceeb, #4682b4);
+}
+.todo-btn.theme .btn:nth-of-type(3) {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+}
+.todo-btn.theme .btn:nth-of-type(4) {
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
+}
+.todo-btn.theme .btn:nth-of-type(5) {
+  background: linear-gradient(135deg, #ba55d3, #8a2be2);
+}
+.todo-btn.theme .btn:nth-of-type(6) {
+  background: linear-gradient(135deg, #40e0d0, #20b2aa);
+}
+.todo-btn.theme .btn:nth-of-type(1) {
+  background: linear-gradient(135deg, #32cd32, #228b22);
+}
+.todo-btn.theme .btn:nth-of-type(8) {
+  background: linear-gradient(135deg, #1e90ff, #104e8b);
+}
+.theme .task-item .btn-edit {
+  background: linear-gradient(135deg, #086fff, #898075);
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  width: 90%;
+}
+.banner > #todo-title.theme {
+  margin: 20px auto;
+}
+#todo-title::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: -6rem;
+  bottom: -3px;
+  background: url(./goku3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+/* 1. repeat(auto-fit, minmax(60px, 1fr))
+
+repeat(): lặp cột theo mẫu cho nhanh, khỏi viết 1fr 1fr 1fr ... dài ngoằng.
+
+auto-fit: số cột tự co lại vừa với container, nếu thiếu thì “gập” chặt vào.
+
+minmax(60px, 1fr): mỗi ô có chiều rộng tối thiểu 60px, tối đa chiếm đều (1fr).
+👉 Nghĩa là: khi màn hình rộng → nhiều cột; khi hẹp → ít cột lại, chứ nút không bé tí ti.
+
+2. auto-fill vs auto-fit
+
+auto-fill: cứ nhét cột “ảo” vào, kể cả thừa → trông nó để trống chỗ.
+
+auto-fit: thông minh hơn, tự gom lại → không để khoảng trống.
+👉 Nên dùng auto-fit cho responsive đẹp.
+
+3. Các “vũ khí” hay ho khác của Grid 🔥
+
+gap
+Khoảng cách giữa hàng/cột (giống margin giữa item nhưng gọn hơn).
+
+grid-auto-flow: row | column | dense
+Điều khiển cách Grid sắp xếp item:
+
+row: mặc định, lấp từng hàng.
+
+column: lấp từng cột.
+
+dense: cố nhét item nhỏ vào chỗ trống (giống Tetris 🕹️).
+
+grid-template-areas
+Đặt layout bằng chữ, dễ đọc hơn code số:
+
+grid-template-areas: 
+  "header header"
+  "sidebar main"
+  "footer footer";
+
+
+place-items / place-content
+Căn giữa item siêu gọn:
+
+place-items: center; /* = align-items + justify-items */
+
+/* subgrid (mới, hỗ trợ dần): cho phép grid con “ăn theo” track của grid cha.
+
+⚡ Tóm lại:
+
+repeat(auto-fit, minmax()) = “chiêu ultimate” cho responsive.
+
+gap, auto-flow, place-items = combo căn chỉnh + spacing gọn nhẹ.
+
+grid-template-areas = dễ nhìn như vẽ layout bằng chữ. */
+
+/* 3. grid-auto-flow: dense;
+
+👉 Bật “Tetris mode” 🎮.
+Nếu có ô trống (do item trước chiếm nhiều cột/hàng) → item sau sẽ nhảy lấp vào chỗ trống.
+Không theo thứ tự DOM 100% nữa.
+
+grid-auto-flow: row dense;   /* lấp theo hàng, nhét kín chỗ trống */
+/* grid-auto-flow: column dense;/* lấp theo cột, nhét kín chỗ trống */
+
+/* 💡 Ví dụ dễ hình dung:
+
+Nếu không dense → Grid sắp hàng gọn gàng, nhưng có thể có lỗ trống.
+
+Nếu dùng dense → nó cố nhét item nhỏ vào khoảng trống, nhìn kín hơn nhưng có thể đảo vị trí so với HTML.  */
+/* 👉 Nói cách khác:
+
+grid-template-* = “mình vẽ khung” rõ ràng.
+
+grid-auto-flow = “browser tự tính” chỗ còn lại khi có dư item.
+
+Nếu m không set cột/hàng, Grid vẫn chạy, nhưng khó kiểm soát layout (nhất là responsive). */
+/* 1. Set hàng/cột cứng
+
+Ví dụ:
+
+grid-template-columns: repeat(3, 100px);
+
+
+👉 Lúc này lưới chỉ có đúng 3 cột 100px, thêm item thì nó sẽ tự chảy xuống hàng (row – mặc định).
+→ Không responsive mấy, vì khung cột fix cứng.
+
+2. Set hàng/cột bằng công thức co giãn
+
+Ví dụ:
+
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+
+👉 Đây mới là “xịn”:
+
+minmax(100px, 1fr): mỗi cột ít nhất 100px, nhiều nhất là chia đều.
+
+auto-fit: khi màn hình hẹp → số cột giảm dần, khi rộng → số cột tăng lên.
+→ Đây là cách làm responsive chính thống trong Grid.
+
+3. Kết hợp với grid-auto-flow
+
+grid-auto-flow: row; (default) → khi khung cột đầy, item sẽ nhảy xuống hàng tiếp theo.
+
+grid-auto-flow: column; → khi khung hàng đầy, item nhảy sang cột tiếp theo.
+
+dense → cố lấp chỗ trống nếu có item nhỏ.
+
+👉 Nên hiểu là: auto-flow không làm responsive; cái làm responsive là cách m set track (auto-fit, auto-fill, minmax).
+Auto-flow chỉ quyết định cách xếp tiếp khi còn chỗ trống/dư item. */
+/* ⚡Tóm gọn:
+
+Muốn responsive → dùng auto-fit/auto-fill + minmax().
+
+Auto-flow = quyết định hướng “dòng chảy” khi xếp item thôi. */
+/* 👉 Đây là điểm khác biệt lớn giữa Grid và Flexbox:
+
+Flexbox phải flex-wrap: wrap; mới xuống hàng.
+
+Grid thì auto xuống hàng khi track không đủ diện tích (vì m đã set minmax). */
+/* Chỉ cần 1 dòng:
+
+grid-auto-flow: column;
+
+
+👉 Grid sẽ xếp item theo chiều ngang (ngang 1 hàng), không tự wrap xuống dòng nữa.
+Nó khác với row (mặc định) là sẽ đẩy item theo chiều dọc.
+
+⚠️ Nhưng lưu ý:
+
+Nếu container hẹp hơn tổng chiều rộng các item, thì item sẽ bị nén lại (nếu có fr hoặc minmax cho phép co giãn).
+
+Nếu bạn muốn giữ nguyên kích thước mỗi item (không cho nó bị ép nhỏ lại), thì bạn nên kết hợp thêm:
+
+grid-auto-columns: 150px; /* chiều rộng mỗi cột */
+/* overflow-x: auto;         /* có scroll ngang khi tràn */
+
+/* 👉 Như vậy thì đảm bảo: không bao giờ xuống dòng, và khi thiếu chỗ → chỉ đơn giản là scroll ngang. */
+
+/* them account da login */
+.acc-label {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  cursor: pointer;
+  align-self: flex-end;
+  background: linear-gradient(90deg, rgb(170, 142, 90), #ffd700);
+  border-radius: 50px;
+  padding: 10px 16px;
+  margin: 20px;
+  text-align: center;
+  font-size: 12px;
+  width: fit-content;
+  min-width: 120px;
+  max-width: 130px;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  color: white;
+}
+
+.acc-label:hover {
+  color: black;
+  transform: scale(1.05);
+}
+
+.acc-label:active {
+  transform: scale(0.95);
+}
+
+#account {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+#account:hover {
+  color: black;
+  transform: scale(1.1);
+}
+
+.acc-label.theme {
+  background: linear-gradient(90deg, rgb(175, 172, 165), #04d9ff);
+  color: whitesmoke;
+}
+
+.acc-sub {
+  opacity: 0;
+  color: black;
+  visibility: hidden;
+  position: absolute;
+  bottom: -40px;
+  inset-inline: 0;
+  margin-inline: auto;
+  background-color: #fff;
+  pointer-events: auto;
+  z-index: 10;
+  border-radius: 10px;
+  width: fit-content;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.acc-label:hover .acc-sub {
+  opacity: 1;
+  visibility: visible;
+}
+
+.acc-sub-info {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.acc-sub-info li {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.acc-sub-info li:hover {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+.acc-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  border-radius: 10px;
+}
+
+.acc-item:hover {
+  background-color: #595956;
+  transform: scale(1.05);
+}
+
+.acc-item:active {
+  transform: scale(0.95);
+}
+
+.PlayMusic {
+  --scale: 1;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  background-color: white;
+  transition: transform 0.3s ease;
+  transform: scale(var(--scale));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.PlayMusic__inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: url(./bz3.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.PlayMusic:hover {
+  --scale: 1.1;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+.PlayMusic:active {
+  --scale: 0.9;
+}
+.PlayMusic.MusicActive .PlayMusic__inner {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.PlayMusic__inner.theme {
+  background-image: url(./doremonicon.png);
+  background-size: 80%;
+}
+
+@media (max-width: 600px) {
+  .search-box {
+    width: 90%;
+  }
+  body {
+    background-color: #f6971a;
+    background-position: center -200px;
+  }
+  .PlayMusic {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* chuan cua s21 350 do xuong */
+@media (max-width: 540px) {
+  .banner {
+    margin: 0 auto !important;
+  }
+  .todo-btn {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  h1 {
+    font-size: 25px;
+  }
+  #todo-ui {
+    margin: 0 auto;
+  }
+
+  .todo-btn button {
+    width: 100%;
+    height: 35px;
+  }
+  .search-box {
+    width: 88%;
+  }
+
+  #todo-title.theme::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: -4rem;
+    background: url(./doraemon.ico);
+    background-size: contain;
+  }
+}
+
+@media (max-width: 470px) {
+  .search-box {
+    width: 86%;
+  }
+}
+
+@media (max-width: 420px) {
+  #todo-title::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: -3.4rem;
+    bottom: -3px;
+    background: url(./goku3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  h1 {
+    font-size: 23px;
+  }
+  .search-box {
+    width: 85%;
+  }
+  .todo-btn {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .todo-btn button {
+    width: 90%;
+    height: 30px;
+  }
+  #todo-title.theme::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: -4rem;
+    background: url(./doraemon.ico);
+    background-size: contain;
+  }
+}
+@media (max-width: 350px) {
+  #todo-title::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: -3.4rem;
+    bottom: -3px;
+    background: url(./goku3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  h1 {
+    font-size: 20px;
+    scale: 0.8;
+  }
+  .search-box {
+    width: 81%;
+  }
+  .todo-btn {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 8px;
+  }
+  .todo-btn button {
+    width: 100%;
+    height: 40px;
+  }
+  .PlayMusic {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+  }
+  #todo-title.theme::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: -4rem;
+    background: url(./doraemon.ico);
+    background-size: contain;
+  }
+}
