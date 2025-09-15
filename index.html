@@ -3,9 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Komodo Loading...</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #a0c1ff, #d1b3ff);
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .loader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .spinner {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(#ff3cac, #784ba0, #2b86c5, #ff3cac);
+        animation: spin 1s linear infinite;
+        box-shadow: 0 0 10px #ff3cac, 0 0 20px #784ba0, 0 0 30px #2b86c5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .spinner::before {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 60%;
+        background: linear-gradient(135deg, #a0c1ff, #d1b3ff);
+        border-radius: 50%;
+        z-index: 2;
+      }
+
+      .spinner img {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        z-index: 3;
+      }
+
+      .loading-text {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+        font-family: cursive;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Hiệu ứng ... nhấp nháy */
+      .dots::after {
+        content: "";
+        animation: dots 2s steps(3, end) infinite;
+      }
+
+      @keyframes dots {
+        0%,
+        20% {
+          content: "";
+        }
+        40% {
+          content: ".";
+        }
+        60% {
+          content: "..";
+        }
+        80%,
+        100% {
+          content: "...";
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
-    <a href="./log page/index.html">Logpage</a>
+    <div class="loader-container">
+      <div class="spinner">
+        <img src="conrong.png" alt="Komodo Logo" />
+      </div>
+      <div class="loading-text dots">Komodo is Loading</div>
+    </div>
+
+    <script>
+      setTimeout(() => {
+        window.location.href = "./log page/index.html";
+      }, 6000);
+    </script>
   </body>
 </html>
